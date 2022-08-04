@@ -1,0 +1,14 @@
+.contentTodoList{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.todoList{
+    min-width: 350px;
+    padding:0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
