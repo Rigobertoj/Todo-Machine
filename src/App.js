@@ -8,12 +8,12 @@ import {CreateTodoButton} from "./CreateTodoButton";
 
 const todos = [
   {
-    text: 'cortar cebolla', 
-    complete: true,
+    text: 'cortar ceboll', 
+    complete: false,
   },
   {
     text: 'Re inscribirme en la prepa', 
-    complete: false,
+    complete: true,
   },
   {
     text: 'cortar cebolla', 
