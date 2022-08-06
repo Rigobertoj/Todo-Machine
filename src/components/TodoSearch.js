@@ -1,5 +1,5 @@
 import React from 'react';
-import './TodoSearch.css'
+import '../styles/TodoSearch.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const TodoSearch = ({searchValue, setSearchValue}) => {
