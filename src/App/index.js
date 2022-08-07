@@ -1,19 +1,14 @@
 import './App.css';
 import React from "react";
 import  { AppUI } from './AppUI'
+import {useLocalStorage} from '../hook/useLocalStorage'
+
+
 function App(props) {
 
-  const localStorageTodos = localStorage.getItem("TODOS_V1")
-  let parsedTodos;
+  const [todos, saveTodos] =  useLocalStorage('TODOS_V1', [])
 
-  if(!localStorageTodos){
-    localStorage.setItem("TODOS_V1", JSON.stringify([]))
-    parsedTodos = []
-  }else{
-    parsedTodos = JSON.parse(localStorageTodos)
-  }
 
-  const [todos, setTodos] = React.useState(parsedTodos)
   const [searchValue, setSearchValue] = React.useState('')
   console.log(todos)
 
@@ -32,11 +27,7 @@ function App(props) {
     })
   }
   
-  const saveTodos = (newTodos) => {
-    const stringifiedTodos = JSON.stringify(newTodos);
-    localStorage.setItem("TODOS_V1", stringifiedTodos);
-    setTodos(newTodos)
-  }
+
 
   const completeTodo = (text) => {
     const todoIndex = todos.findIndex(todo => todo.text === text)

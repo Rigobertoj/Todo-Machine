@@ -3,10 +3,6 @@ import '../styles/TodoItem.css'
 
 
 const TodoItem = ({text,complete,onComplete,deleteTodo}) => {
-    const onDelete = () => {
-        alert('eliminando el TODO')
-    }
-
     return (
         <li className="todo-item">
             <span 
