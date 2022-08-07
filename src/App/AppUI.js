@@ -6,7 +6,7 @@ import { TodoItem } from "../components/TodoItem";
 import {CreateTodoButton} from "../components/CreateTodoButton";
 
 
-const AppUI = ({totalTodos, completedTodos, searchValue,setSearchValue,searchedTodos,completeTodo,deleteTodo}) => {
+const AppUI = ({error,loading,totalTodos, completedTodos, searchValue,setSearchValue,searchedTodos,completeTodo,deleteTodo}) => {
     return(
         <div className="col-md App-container">
         <TodoCounter
@@ -18,6 +18,9 @@ const AppUI = ({totalTodos, completedTodos, searchValue,setSearchValue,searchedT
           setSearchValue={setSearchValue}
         />
         <TodoLIst>
+            {error && <p> desesperate hubo un error</p>}
+            {loading && <p>Estamos cargando</p>}
+            {(!loading && !searchedTodos) && <p>crear tu primer TODO</p>}
           { searchedTodos.map(todo => (
               <TodoItem 
                 key={todo.text} 
