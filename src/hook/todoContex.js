@@ -31,6 +31,15 @@ const TodoProvider = (props) => {
     
 
 
+    const addTodo = (text) => {
+        const newTodos = [...todos]
+        newTodos.push({
+            complete: false,
+            text
+        })
+        saveTodos(newTodos);
+    }
+
     const completeTodo = (text) => {
         const todoIndex = todos.findIndex(todo => todo.text === text)
 
@@ -55,7 +64,9 @@ const TodoProvider = (props) => {
             error,
             loading,
             totalTodos,
+            saveTodos,
             completedTodos,
+            addTodo,
             searchValue,
             setSearchValue,
             searchedTodos,

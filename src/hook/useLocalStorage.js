@@ -35,7 +35,7 @@ const useLocalStorage = (itemName, initialValue) => {
       } catch (e) {
         setErro(e);
       }
-    }, 3000);
+    }, 1000);
   }, []);
 
   /**
