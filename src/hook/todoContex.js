@@ -7,14 +7,8 @@ const TodoProvider = (props) => {
     const [openModal, setModal] = useState(false)
     const {item:todos, saveItem:saveTodos, loading, error} =  useLocalStorage('TODOS_V1', [])
 
-    const setOpenModal = (openModal) => {
-        let modal
-        if(openModal){
-            modal = false
-            return setModal(modal)
-        }
-        modal = true
-        return setModal(modal)
+    const setOpenModal = () => {
+        return setModal(prevState => !prevState)
     }
 
     const [searchValue, setSearchValue] = useState('')
