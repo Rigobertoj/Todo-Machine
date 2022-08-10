@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 * @param {String} itemName clave por la cual se accedera a los elementos del localStorage
  * @param {*} initialValue  estrutura o tipo de dato que se utilizara en nuesto localStorage
 
-* @returns un array de 2 elementos el cual es el valor de estadoo una function para cambiar ese valor
+* @returns un array de 2 elementos el cual es el valor de estado y una function para cambiar ese valor
  */
 const useLocalStorage = (itemName, initialValue) => {
   const [error, setErro] = useState(false);
@@ -35,8 +35,8 @@ const useLocalStorage = (itemName, initialValue) => {
       } catch (e) {
         setErro(e);
       }
-    }, 2000);
-  });
+    }, 3000);
+  }, []);
 
   /**
    * @description function que nos permite remplazar el valor un elemento o nuesto localStorage
