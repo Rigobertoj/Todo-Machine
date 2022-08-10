@@ -1,4 +1,19 @@
 import React, { useState, useEffect } from "react";
+const todos = [
+    {
+        complete: false,
+        text: 'todo'
+    },
+    {
+        complete: false,
+        text: 'todo'
+    },
+    {
+        complete: false,
+        text: 'todo'
+    }
+]
+
 /**
  * @description function que nos permite utilizar un custom hook para poder agregar o eliminar elementos de nuestro localStorage
 
