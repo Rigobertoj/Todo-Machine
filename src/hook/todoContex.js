@@ -4,9 +4,18 @@ import { useLocalStorage } from './useLocalStorage';
 const TodoContex = createContext()
 
 const TodoProvider = (props) => {
-
+    const [openModal, setModal] = useState(false)
     const {item:todos, saveItem:saveTodos, loading, error} =  useLocalStorage('TODOS_V1', [])
 
+    const setOpenModal = (openModal) => {
+        let modal
+        if(openModal){
+            modal = false
+            return setModal(modal)
+        }
+        modal = true
+        return setModal(modal)
+    }
 
     const [searchValue, setSearchValue] = useState('')
     console.log(todos)
@@ -57,7 +66,10 @@ const TodoProvider = (props) => {
             setSearchValue,
             searchedTodos,
             completeTodo,
-            deleteTodo
+            deleteTodo,
+            openModal,
+            setModal,
+            setOpenModal,
         }}>
             {props.children}
         </TodoContex.Provider>
