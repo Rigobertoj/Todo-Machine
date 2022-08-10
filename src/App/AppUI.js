@@ -6,10 +6,10 @@ import { TodoLIst } from "../components/TodoLIst";
 import { TodoItem } from "../components/TodoItem";
 import { CreateTodoButton } from "../components/CreateTodoButton";
 import { Modal } from "../modal";
-import { TodoForm } from "../components/form";
+
 
 const AppUI = () => {
-  const { error, loading, searchedTodos, completeTodo, deleteTodo, openModal, SetCloseModal} = React.useContext(TodoContex);
+  const { error, loading, searchedTodos, completeTodo, deleteTodo, openModal, SetCloseModal} = useContext(TodoContex);
 
   return (
     <div className="col-md App-container">
@@ -31,7 +31,7 @@ const AppUI = () => {
       </TodoLIst>
       {openModal && 
       <Modal>
-        <TodoForm />
+
       </Modal>
       }
       <CreateTodoButton SetOpenModal={openModal}></CreateTodoButton>
