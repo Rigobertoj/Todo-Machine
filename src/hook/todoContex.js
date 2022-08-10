@@ -4,6 +4,7 @@ import { useLocalStorage } from './useLocalStorage';
 const TodoContex = createContext()
 
 const TodoProvider = (props) => {
+
     const [openModal, setModal] = useState(false)
     const {item:todos, saveItem:saveTodos, loading, error} =  useLocalStorage('TODOS_V1', [])
 
@@ -18,11 +19,23 @@ const TodoProvider = (props) => {
     const completedTodos = todos.filter(todo => todo.complete === true).length
     const totalTodos = todos.length
 
+
     let searchedTodos= []
+
+    const deleteTodo = (text) => {
+        const todoIndex = searchedTodos.findIndex(todo => todo.text === text)
+        const NewTodos = [...todos]
+        NewTodos.splice(todoIndex,1)
+        saveTodos(NewTodos)
+    }
+    
     if(!searchedTodos >= 1){
         searchedTodos = todos
     }else{
         searchedTodos = todos.filter(todo => {
+        if(todo.text !== ''){
+            deleteTodo(todo.text)
+        }
         const todoText = todo.text.toLowerCase();
         const searchText  = searchValue.toLowerCase();
         return todoText.includes(searchText)
@@ -30,15 +43,6 @@ const TodoProvider = (props) => {
     }
     
 
-
-    const addTodo = (text) => {
-        const newTodos = [...todos]
-        newTodos.push({
-            complete: false,
-            text
-        })
-        saveTodos(newTodos);
-    }
 
     const completeTodo = (text) => {
         const todoIndex = todos.findIndex(todo => todo.text === text)
@@ -52,21 +56,14 @@ const TodoProvider = (props) => {
     saveTodos(newTodos)
     }
   
-    const deleteTodo = (text) => {
-        const todoIndex = searchedTodos.findIndex(todo => todo.text === text)
-        const NewTodos = [...todos]
-        NewTodos.splice(todoIndex,1)
-        saveTodos(NewTodos)
-    }
+
   
     return(
         <TodoContex.Provider value={{
             error,
             loading,
             totalTodos,
-            saveTodos,
             completedTodos,
-            addTodo,
             searchValue,
             setSearchValue,
             searchedTodos,
