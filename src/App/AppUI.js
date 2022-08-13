@@ -7,6 +7,7 @@ import { TodoItem } from "../components/TodoItem";
 import { CreateTodoButton } from "../components/CreateTodoButton";
 import { Modal } from "../modal";
 import { TodoForm } from "../components/form";
+import { TodosLoading } from "../components/LoadingSkeletons/TodosLoading";
 
 const AppUI = () => {
   const { error, loading, searchedTodos, completeTodo, deleteTodo, openModal, SetCloseModal} = useContext(TodoContex);
@@ -17,7 +18,7 @@ const AppUI = () => {
       <TodoSearch />
       <TodoLIst>
         {error && <p> desesperate hubo un error</p>}
-        {loading && <p>Estamos cargando</p>}
+        {loading && <TodosLoading></TodosLoading>}
         {!loading && !searchedTodos && <p>crear tu primer TODO</p>}
         {searchedTodos.map((todo) => (
           <TodoItem
