@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Rigobertoj/Todo-Machine/static/css/main.162e34af.css",
+    "main.js": "/Rigobertoj/Todo-Machine/static/js/main.bd82c404.js",
+    "index.html": "/Rigobertoj/Todo-Machine/index.html",
+    "main.162e34af.css.map": "/Rigobertoj/Todo-Machine/static/css/main.162e34af.css.map",
+    "main.bd82c404.js.map": "/Rigobertoj/Todo-Machine/static/js/main.bd82c404.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.162e34af.css",
+    "static/js/main.bd82c404.js"
+  ]
+}
